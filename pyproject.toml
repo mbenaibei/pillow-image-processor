@@ -1,7 +1,7 @@
 [project]
 name = "pillow-image-processor"
 version = "0.1.0"
-description = "A configurable image processing utility using Pillow library"
+description = "A configurable image processing utility using Python Pillow library"
 readme = "README.md"
 authors = [
     {name = "Mbaireadjim Benaibei", email = "mbenaibei@gmail.com"}
