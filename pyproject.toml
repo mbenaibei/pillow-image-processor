@@ -1,10 +1,65 @@
 [project]
 name = "pillow-image-processor"
 version = "0.1.0"
-description = "Add your description here"
+description = "A configurable image processing utility using Pillow library"
 readme = "README.md"
+authors = [
+    {name = "Mbaireadjim Benaibei", email = "mbenaibei@gmail.com"}
+]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pillow>=12.2.0",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.14.2",
+]
 
 [dependency-groups]
-dev = []
+dev = [
+    "ruff>=0.15.20",
+]
+
+[project.scripts]
+pillow-process = "pillow_image_processor.main:main"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# Files and directories to exclude from linting and formatting
+exclude = [
+    ".git",          # Version control directory
+    ".venv",         # Virtual environment
+    "__pycache__",   # Python cache files
+    "build",         # Build output directory
+    "dist",          # Distribution directory
+]
+
+[tool.ruff.lint]
+# Rules to enable
+select = [
+    "E",      # pycodestyle style errors (indentation, spacing, etc.)
+    "F",      # Pyflakes errors (unused variables, undefined names, etc.)
+    "I",      # Import sorting rules (isort)
+    "B",      # Potential bugs (flake8-bugbear)
+    "UP",     # Syntax modernization (pyupgrade - suggests Python 3.10+ syntax)
+    "SIM",    # Possible simplifications (flake8-simplify)
+]
+
+# Rules to ignore
+ignore = [
+    "E501",   # Line too long (handled by the formatter)
+]
+
+# Rules that --fix can automatically correct
+fixable = ["ALL"]
+
+[tool.ruff.format]
+# Quote style (matches Black's default)
+quote-style = "double"
+
+# Indentation style (matches Black's default)
+indent-style = "space"
